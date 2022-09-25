@@ -65,14 +65,15 @@ public class Worker {
         contracts.remove(contract);
     }
 
+    // Faltando aprender obter a data correta para implementar esse método.
     public Double income(Integer year, Integer month) {
         double sum = baseSalary;
 
-        for (HourContract c : contracts) {
+        /*for (HourContract c : contracts) {
             if () {
                 sum += c.totalValue();
             }
-        }
+        }*/
         return sum;
     }
 }
