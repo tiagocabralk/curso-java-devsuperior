@@ -1,6 +1,8 @@
 package exercicio_enumeracoes.exercicio_01.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Worker {
@@ -65,15 +67,16 @@ public class Worker {
         contracts.remove(contract);
     }
 
-    // Faltando aprender obter a data correta para implementar esse método.
     public Double income(Integer year, Integer month) {
         double sum = baseSalary;
 
-        /*for (HourContract c : contracts) {
-            if () {
+        for (HourContract c : contracts) {
+            int c_ano = c.getDate().getYear();
+            int c_mes = c.getDate().getMonthValue();
+            if (c_ano == year && c_mes == month) {
                 sum += c.totalValue();
             }
-        }*/
+        }
         return sum;
     }
 }

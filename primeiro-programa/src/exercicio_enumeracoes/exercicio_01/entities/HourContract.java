@@ -1,6 +1,7 @@
 package exercicio_enumeracoes.exercicio_01.entities;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class HourContract {
     private LocalDate date;
