@@ -5,8 +5,6 @@ import exercicio_enumeracoes.exercicio_02.entities.Post;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
@@ -20,14 +18,13 @@ public class Program {
         LocalDateTime momento = LocalDateTime.now();
 
         Post post01 = new Post(momento, "Traveling to New Zelland", "I'm going to visit this wonderful country!", 12);
+        post01.addComment(c01);
+        post01.addComment(c02);
+        System.out.println(post01);
 
         Post post02 = new Post(momento, "Good night guys", "See you tomorrow", 5);
-
-        System.out.println(post01.getTitle());
-        System.out.println(post01.getLikes() + " Likes - " + post01.getMoment().format(formatter));
-        System.out.println(post01.getContent());
-        System.out.println("Comments:");
-
-        System.out.println(post01.addComment(c01));
+        post02.addComment(c03);
+        post02.addComment(c04);
+        System.out.println(post02);
     }
 }

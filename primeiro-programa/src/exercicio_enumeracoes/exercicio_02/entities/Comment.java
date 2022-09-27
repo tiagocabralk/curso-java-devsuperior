@@ -17,4 +17,13 @@ public class Comment {
     public void setText(String text) {
         this.text = text;
     }
+
+    public void status() {
+        System.out.println(getText());
+    }
+
+    @Override
+    public String toString() {
+        return text;
+    }
 }

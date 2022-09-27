@@ -1,10 +1,12 @@
 package exercicio_enumeracoes.exercicio_02.entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Post {
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy HH:mm:ss");
     private LocalDateTime moment;
     private String title;
     private String content;
@@ -60,5 +62,19 @@ public class Post {
 
     public void removeComment(Comment comment) {
         comments.remove(comment);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder construirStrings = new StringBuilder();
+        construirStrings.append(title + "\n");
+        construirStrings.append(likes + " Likes - ");
+        construirStrings.append(moment.format(formatter) + "\n");
+        construirStrings.append(content + "\n");
+        construirStrings.append("Comments: \n");
+        for (Comment c : comments) {
+            construirStrings.append(c.getText() + "\n");
+        }
+        return construirStrings.toString();
     }
 }
