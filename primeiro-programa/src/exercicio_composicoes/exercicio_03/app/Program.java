@@ -3,6 +3,7 @@ package exercicio_composicoes.exercicio_03.app;
 import exercicio_composicoes.exercicio_03.entities.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
@@ -21,13 +22,19 @@ public class Program {
         System.out.print("Birth date (DD/MM/YYYY): ");
         String data = sc.next();
         LocalDate clientBirthDay = LocalDate.parse(data, formatter);
+
         Client client = new Client(clientName, clientEmail, clientBirthDay);
 
         System.out.println("Enter order data:");
         System.out.print("Status: ");
         String status = sc.next();
+
         System.out.print("How many items to this order? ");
         int item = sc.nextInt();
+
+        LocalDateTime momento = LocalDateTime.now();
+
+        Order order = new Order(momento, OrderStatus.valueOf(status), client);
 
         for (int i=1; i<=item; i++) {
             System.out.println("Enter #" + i + " item data:");
@@ -39,11 +46,15 @@ public class Program {
             System.out.print("Quantity: ");
             int productQuantity = sc.nextInt();
 
-            Order order = new Order(LocalDate.now(), OrderStatus.valueOf(status));
             Product product = new Product(productName, productPrice);
+            OrderItem orderItem = new OrderItem(productQuantity, productPrice, product);
+            order.addItem(orderItem);
 
-            //OrderItem orderItem = new OrderItem(productQuantity, productPrice, product);
         }
 
+        System.out.println();
+        System.out.println(order);
+
+        sc.close();
     }
 }

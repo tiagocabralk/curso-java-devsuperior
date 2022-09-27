@@ -3,7 +3,6 @@ package exercicio_composicoes.exercicio_03.entities;
 public class OrderItem {
     private Integer quantity;
     private Double price;
-
     private Product product;
 
     public OrderItem() {
@@ -40,6 +39,8 @@ public class OrderItem {
     }
 
     public Double subTotal() {
-        return price *= quantity;
+        return price * quantity;
     }
+
+
 }
