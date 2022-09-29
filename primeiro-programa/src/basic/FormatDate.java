@@ -12,8 +12,11 @@ import java.util.Scanner;
 public class FormatDate {
 
 	public static void main(String[] args) {
-
+		Scanner sc = new Scanner(System.in);
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String d = sc.nextLine();
+		LocalDate data = LocalDate.parse(d, format);
+		System.out.println(data.format(format));
 		
 		/*LocalDate data01 = LocalDate.now();
 		LocalDateTime data02 = LocalDateTime.now();
@@ -22,7 +25,7 @@ public class FormatDate {
 //		LocalDate data04 = LocalDate.parse("2022-09-23");
 //		LocalDateTime data05 = LocalDateTime.parse("2022-09-23T16:55:30");
 //		Instant data06 = Instant.parse("2022-09-23T16:55:30Z");
-		Instant data06 = Instant.now();
+		//Instant data06 = Instant.now();
 
 
 		
@@ -30,7 +33,7 @@ public class FormatDate {
 
 		// Converter data global para local
 
-		LocalDate data08 = LocalDate.ofInstant(data06, ZoneId.systemDefault());
+		//LocalDate data08 = LocalDate.ofInstant(data06, ZoneId.systemDefault());
 		
 //		System.out.println("data01: " + data01.toString());
 //		System.out.println("data02: " + data02);
@@ -39,7 +42,7 @@ public class FormatDate {
 //		System.out.println("data05: " + data05);
 //		System.out.println("data06: " + data06);
 //		System.out.println("data07: " + data07);
-		System.out.println("data08: " + data08);
+		//System.out.println("data08: " + data08);
 
 	}
 
